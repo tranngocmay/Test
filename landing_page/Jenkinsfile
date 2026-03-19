@@ -10,8 +10,7 @@ pipeline {
             steps {
                 withCredentials(
                     [
-                    usernamePassword(credentialsId:'SSH_KEY',usernameVariable:'KEY', passwordVariable:'SSH_USER'),
-                    string(credentialsId:'secret_id', variable:'VARS')
+                    sshUserPrivateKey(credentialsId:'SSH_KEY',usernameVariable:'KEY', passwordVariable:'SSH_USER')
                     ]
                     ){
                         sh """
